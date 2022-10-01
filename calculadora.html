@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title> Calculadora </title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    
+    <style>
+
+        #resultado {
+            width: 221px;
+            background-color: white;
+            height: 50px;
+            font-size: 19px;
+            margin: 6px;
+            text-align: right;
+            padding: 5px;
+        }
+
+        .cell__big {
+            height: auto;
+            display: flex;
+            height: calc(325% - 2rem);   
+        }
+         
+    </style>
+    
+    <script>
+
+        function inserir(num) {
+           var numero= document.getElementById("resultado").innerHTML;
+           document.getElementById("resultado").innerHTML = numero + num;
+        }
+
+        function limpar() {
+            document.getElementById("resultado").innerHTML = "";
+        }
+
+        function back() {
+           var resultado = document.getElementById("resultado").innerHTML;
+           document.getElementById("resultado").innerHTML =  resultado.substring(0, resultado.length -1);
+        }
+
+        function calcular() {
+            var resultado = document.getElementById("resultado").innerHTML;
+
+            if(resultado) {
+                document.getElementById('resultado').innerHTML = eval(resultado);
+            } else {
+                document.getElementById('resultado').innerHTML = "Nada";
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="row m-4 position-relative">
+            <div class="col-3 bg-dark position-absolute top-0 start-50 translate-middle-x">
+
+                <div class="row p-1 mt-2">
+                    <div class="col-12">
+                        <p id="resultado" class="form-control"> </p>
+                    </div>
+                    <hr>
+                </div>
+                
+                <div class="row p-2">
+                    <div class="col-3">
+                        <button type="button" class="btn btn-outline-success font-monospace " onclick="limpar()"> C </button>
+                    </div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-outline-success font-monospace" onclick="back()"> < </button>
+                    </div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-outline-success font-monospace" onclick="inserir('/')"> / </button>
+                    </div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-outline-success font-monospace" onclick="inserir('*')"> X </button>
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="col-3">
+                        <button type="button" class="btn btn-outline-success font-monospace" onclick="inserir('7')"> 7 </button>
+                    </div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-outline-success font-monospace" onclick="inserir('8')"> 8 </button>
+                    </div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-outline-success font-monospace" onclick="inserir('9')"> 9 </button>
+                    </div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-outline-success font-monospace" onclick="inserir('-')"> - </button>
+                    </div>
+                </div>
+                <div class="row p-2" >
+                    <div class="col-3">
+                        <button type="button" class="btn btn-outline-success font-monospace" onclick="inserir('4')"> 4 </button>
+                    </div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-outline-success font-monospace" onclick="inserir('5')"> 5 </button>
+                    </div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-outline-success font-monospace" onclick="inserir('6')"> 6 </button>
+                    </div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-outline-success font-monospace" onclick="inserir('+')"> + </button>
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="col-3">
+                        <button type="button" class="btn btn-outline-success font-monospace" onclick="inserir('1')"> 1 </button>
+                    </div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-outline-success font-monospace" onclick="inserir('2')"> 2 </button>
+                    </div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-outline-success font-monospace" onclick="inserir('3')"> 3 </button>
+                    </div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-outline-success font-monospace cell__big" onclick="calcular()"> = </button> </td>
+                    </div>
+                </div>
+                <div class="row p-2 mb-2">
+                    <div class="col-6">
+                        <button type="button" class="btn btn-outline-success font-monospace" style="width: 98px;" onclick="inserir('0')"> 0 </button>
+                    </div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-outline-success font-monospace" onclick="inserir('.')"> . </button>
+                    </div>    
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
